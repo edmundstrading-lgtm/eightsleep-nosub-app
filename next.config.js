@@ -6,8 +6,10 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // This explicitly stops Next.js from prerendering or testing API pages during builds
-  output: 'standalone'
+  // This prevents Next.js from trying to statically optimize API and trpc routes during the build phase
+  experimental: {
+    unstable_noStoreByImport: true,
+  }
 };
 
 export default nextConfig;
