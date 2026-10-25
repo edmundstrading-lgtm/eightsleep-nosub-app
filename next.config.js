@@ -1,17 +1,10 @@
-/**
- * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
- * for Docker builds.
- */
-await import("./src/env.js");
-
-/** @type {import("next").NextConfig} */
-const config = {
-    typescript: {
-        ignoreBuildErrors: true,
-    },  
-    eslint: {
-        ignoreDuringBuilds: true,
-    },
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  env: {
+    POSTGRES_URL: process.env.DRIZZLE_DATABASE_URL,
+    POSTGRES_URL_NON_POOLING: process.env.DRIZZLE_DATABASE_URL,
+  },
 };
 
-export default config;
+module.exports = nextConfig;
+
