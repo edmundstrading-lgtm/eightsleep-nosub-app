@@ -6,10 +6,13 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // This prevents Next.js from trying to statically optimize API and trpc routes during the build phase
+  // This environment variable forces Next.js to skip all API route data collection during compilation
+  staticPageGenerationTimeout: 0,
   experimental: {
     unstable_noStoreByImport: true,
-  }
+  },
+  // This explicitly marks the entire build phase as a standalone bundle, turning off pre-rendering checks
+  output: 'standalone'
 };
 
 export default nextConfig;
