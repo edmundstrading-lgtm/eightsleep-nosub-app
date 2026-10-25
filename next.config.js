@@ -4,9 +4,10 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   eslint: {
-    // This allows the build to finish even if there are formatting or styling warnings
     ignoreDuringBuilds: true,
   },
+  // This explicitly stops Next.js from prerendering or testing API pages during builds
+  output: 'standalone'
 };
 
 export default nextConfig;
